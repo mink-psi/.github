@@ -1,0 +1,14 @@
+name: Publish
+
+on:
+  workflow_call:
+
+jobs:
+  first_job:
+    if: github.ref_name == 'server/Production-Live'
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "${{github.ref_name}}"
+    - run: echo "${{secrets.REPO_SECRET}}"
+    
